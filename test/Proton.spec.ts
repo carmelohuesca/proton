@@ -1,6 +1,6 @@
 /// <reference path='../typings/index.d.ts' />
 
-import { Proton } from '../src/index';
+import { Proton } from '../src';
 
 describe('Proton - La partícula Protón contiene los prototipos nativos de js más usados', () => {
 	let instance: Proton;
