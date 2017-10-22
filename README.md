@@ -105,6 +105,14 @@ Escapa caracteres especiales de un string de HTML
     str.escapeHTML();
 ```
 
+### interpolate()
+
+Interpola los valores de un string de tipo {n}
+
+```
+    str.interpolate(value1,..,valuen);
+```
+
 ## Documentación
 
 Para la documentación, lanzar:
