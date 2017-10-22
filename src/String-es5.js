@@ -61,16 +61,19 @@
     };
 
     /**
-     * Escapa caracteres especiales de un string de HTML
+     * Interpola los valores de un string de tipo {n}
      * @return {string}
      */
-    String.prototype.escapeHTML = function() {
-        return this
-            .replace(/&/g, '&amp;')
-            .replace(/"/g, '&quot;')
-            .replace(/'/g, '&#39;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;');
+    String.prototype.interpolate = function() {
+        var str = this;
+        var args = arguments;
+        if (args && Object.keys(args).length > 0) {
+            for (let i = 0; i <= args.length; i++) {
+                str = str.split('{' + i + '}').join(args[i]);
+            };
+        }
+        return str;
     };
+
 
 })();

@@ -11,6 +11,10 @@ describe('Proton - La partícula Protón contiene los prototipos nativos de js m
 	const CAMELIZED = 'carmeloHuescaCalatayud';
 	const HASHED = -524672366;
 	const SCAPED = '&lt;b&gt;carmelo huesca calatayud&lt;/b&gt;';
+	const SENTENCE_WITH_VALUES = 'carmelo {0}, tiene dos apellidos {0} y {1}';
+	const HUESCA = 'huesca';
+	const CALATAYUD = 'calatayud';
+	const INTERPOLATED = 'carmelo huesca, tiene dos apellidos huesca y calatayud';
 
 	beforeEach(() => {
 		instance = new Proton();
@@ -57,6 +61,10 @@ describe('Proton - La partícula Protón contiene los prototipos nativos de js m
 		it('between(' + `${SENTENCE_WITH_HTML}` + ', <b>, </b>) => ' + `${SENTENCE}`, () => {
 			instance = new Proton();
 			expect(Proton.string.between(SENTENCE_WITH_HTML, '<b>', '</b>')).toBe(SENTENCE);
+		});
+		it('interpolate(' + `${SENTENCE_WITH_VALUES}` + ', ' + `${HUESCA} ` + ', ' + `${CALATAYUD} ` + ')', () => {
+			instance = new Proton();
+			expect(Proton.string.interpolate(SENTENCE_WITH_VALUES, HUESCA, CALATAYUD)).toBe(INTERPOLATED);
 		});
 	});
 

@@ -49,5 +49,15 @@ Object.assign(String.prototype, {
             .replace(/'/g, '&#39;')
             .replace(/</g, '&lt;')
             .replace(/>/g, '&gt;');
+    },
+    interpolate(...args) {
+        let str = this;
+        if (args && Object.keys(args).length > 0) {
+            for (let i = 0; i <= args.length; i++) {
+                str = str.split('{' + i + '}').join(args[i]);
+            };
+        }
+        return str;
     }
+
 });

@@ -59,5 +59,17 @@ export class StringExtended {
             .replace(/</g, '&lt;')
             .replace(/>/g, '&gt;');
     }
+
+    static interpolate(...args: any[]): string {
+        let str = args[0];
+        if (args && Object.keys(args).length > 0) {
+            for (let i = 0; i <= args.length; i++) {
+                str = str.split('{' + i + '}').join(args[i + 1]);
+            }
+        }
+        return str;
+    }
+
+
 }
 
